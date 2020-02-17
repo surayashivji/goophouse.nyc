@@ -60,7 +60,7 @@
         const text = new Blotter.Text(textEl.innerHTML, {
             family : "'Playfair Display',serif",
             weight: 900,
-            size : 200,
+            size : 150,
             paddingLeft: 100,
             paddingRight: 100,
             paddingTop: 100,
