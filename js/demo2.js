@@ -55,15 +55,38 @@
 
     const elem = document.querySelector('.content__text');
     const textEl = elem.querySelector('span.content__text-inner');
+
+
+    const initPage = () => {
+
+        console.log("init page");
+
+        var left, right, currentsize;
+        var isMobile = winsize.width < 1000;
+        if (isMobile) {
+            console.log("we mobile");
+            left = 0;
+            right = 0;
+            currentsize = 50;
+        } else {
+            console.log("we not mobile");
+            left = 100;
+            right = 100;
+            currentsize = 150;
+        }
+
+
+        createBlotterText(left, right, currentsize);
+    }
     
-    const createBlotterText = () => {
+    const createBlotterText = (left, right, currentsize) => {
         const text = new Blotter.Text(textEl.innerHTML, {
             family : "'Playfair Display',serif",
             weight: 900,
-            size : 150,
-            paddingLeft: 100,
-            paddingRight: 100,
-            paddingTop: 100,
+            size : currentsize,
+            paddingLeft: left,
+            paddingRight: right,
+            paddingTop: 200,
             paddingBottom: 100,
             fill : 'white'
         });
@@ -104,7 +127,7 @@
         google: {
             families: ['Playfair+Display:900']
         },
-        active: () => createBlotterText()
+        active: () => initPage()
     });
 
     // Preload all the images in the page.
