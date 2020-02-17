@@ -52,32 +52,34 @@
 
         console.log("init page");
 
-        var left, right, currentsize;
+        var left, right, top, currentsize;
         var isMobile = winsize.width < 1000;
         if (isMobile) {
             console.log("we mobile");
             left = 0;
             right = 0;
             currentsize = 50;
+            top = 150;
         } else {
             console.log("we not mobile");
             left = 100;
             right = 100;
             currentsize = 150;
+            top = 200;
         }
 
 
-        createBlotterText(left, right, currentsize);
+        createBlotterText(left, right, currentsize, top);
     }
     
-    const createBlotterText = (left, right, currentsize) => {
+    const createBlotterText = (left, right, currentsize, top) => {
         const text = new Blotter.Text(textEl.innerHTML, {
             family : "'Playfair Display',serif",
             weight: 900,
             size : currentsize,
             paddingLeft: left,
             paddingRight: right,
-            paddingTop: 200,
+            paddingTop: top,
             paddingBottom: 100,
             fill : 'white'
         });
